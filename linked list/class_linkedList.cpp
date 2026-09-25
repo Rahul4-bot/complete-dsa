@@ -31,7 +31,7 @@ public:
         Node *temp = head;
         while (temp != NULL)
         {
-            cout << temp->val << endl;
+            cout << temp->val<<" " ;
             temp = temp->next;
         }
     }
@@ -75,31 +75,33 @@ public:
         }
         size++;
     }
-    // void InsertAtIdx(int idx ,int val){
-    //     Node* temp = new Node(val);
-    //     if (idx<0 || idx>size) {cout<<"the linked list is empty" ;}
-    //     else if(idx == 0){InsertAtBeginning(val);}
-    //     else if(idx == size){InsertAtEnd(val);}
-    //     else{
-    //         for(int i=1;i<=idx-1;i++){
-    //             temp = temp->next;
-    //         }
+     void InsertAtIdx(int idx ,int val){
+      
+         if (idx<0 || idx>size) {cout<<"the linked list is empty" ;}
+         else if(idx == 0){InsertAtBeginning(val);}
+        else if(idx == size){InsertAtEnd(val);}
+         else{
+          Node* t = new Node(val);
+          Node *temp = head;
+             for(int i=1;i<=idx-1;i++){
+                 temp = temp->next;
+            }
+    t->next = temp ->next;
+    temp->next = t;
+size++;
 
-    //     }
-    //     size++;
+         }
+         
     
-    // }
+     }
 };
 int main()
 {
     LinkedList l1;
-    l1.InsertAtEnd(30);
-    l1.InsertAtEnd(40);
-    l1.InsertAtEnd(50);
-    l1.InsertAtEnd(60);
-    l1.InsertAtEnd(70);
-    l1.InsertAtBeginning(2);
-    l1.InsertAtIdx(2,55);
-    l1.Display();
+  l1.InsertAtBeginning(10);
+  l1.InsertAtBeginning(29);
+  l1.InsertAtIdx(1,100);
+  
+  l1.Display();
     l1.Size();
 }
